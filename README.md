@@ -5,7 +5,9 @@
 - 모든 문서는 [[Wiki](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki)]에 있습니다
 - 내용이 이상하거나 부실할 수 있습니다. 많은 분들이 도와주시면 더욱 더 좋은 자료가 될 것이라고 생각합니다!
 - 도움을 주실 분들은 [snugyun01@gmail.com](snugyun01@gmail.com)으로 메일 보내주시면 감사하겠습니다 :)
+- 추가하면 좋을 것 같다고 생각하시는 내용은 Issues에 추가해주시면 감사할 것 같습니다 :)
 - 궁금한 내용이 있으신 분들도 메일 주세요! 👍
+
 
 ## Contents
 - [요새 딥러닝의 사례](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/%EC%9A%94%EC%83%88-%EB%94%A5%EB%9F%AC%EB%8B%9D-%EC%82%AC%EB%A1%80)
@@ -26,10 +28,12 @@
 - 심화 학습
     - [컴퓨터 비전](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/%EC%BB%B4%ED%93%A8%ED%84%B0-%EB%B9%84%EC%A0%84)
     - [자연어 처리](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC)
+    - [추천 시스템](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/%EC%B6%94%EC%B2%9C-%EC%8B%9C%EC%8A%A4%ED%85%9C)
+    - [시계열 분석](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%B6%84%EC%84%9D)
     - [강화 학습](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/%EA%B0%95%ED%99%94-%ED%95%99%EC%8A%B5)
 - 논문
-    - 논문 읽기
-    - 논문 구현하기
+    - [논문 읽기](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/%EB%85%BC%EB%AC%B8-%EC%9D%BD%EA%B8%B0)
+    - [논문 구현하기](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/%EB%85%BC%EB%AC%B8-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0)
 - [포트폴리오](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4)
     - [Kaggle](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4#kaggle)
     - [공모전](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4#%EA%B3%B5%EB%AA%A8%EC%A0%84)
