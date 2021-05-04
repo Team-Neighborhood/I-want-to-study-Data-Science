@@ -1,4 +1,6 @@
 # I-want-to-study-Data-Science
+[![License: CC BY-ND 4.0](https://img.shields.io/badge/License-CC%20BY--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nd/4.0/)
+
 - 데이터 사이언스를 공부하고 싶은 분들을 위한 글 
 
 ## Notice
