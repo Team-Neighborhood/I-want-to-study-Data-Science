@@ -1,0 +1,67 @@
+import tensorflow as tf
+import gzip, numpy
+import pickle as cPickle
+import pandas as pd
+
+# Load the dataset
+f = open('/Users/juniverse/Downloads/mnist.pkl', 'rb')
+train_set, valid_set, test_set = cPickle.load(f, encoding='latin1')
+f.close()
+
+x_train, y_train = train_set
+x_test, y_test = test_set
+
+# pickle로 불러온 변수에는 train_set, valid_set, test_set이 나뉘어져 있기 때문에 위와 같이 load하면 알아서 training, validation, test set으로 나눌 수 있습니다. 또한 각각은 튜플 자료구조형으로 또 다시 x, y로 나뉘어져 있기 때문에 x_train, y_train = train_set 구문을 통해 feature과 label을 분리할 수 있습니다. 이렇게 데이터를 빠르게 training을 적용할 수 있는 형태로 만들어낼 수 있다는 것이 pickle 파일의 좋은 점입니다. 하지만 예제가 아닌 실제 머신러닝 모델을 구축할 때는 이러한 과정을 모두 직접하여야 합니다. 이미지 파일을 읽어들여야하고 또 이것을 적절한 사이즈의 numpy array로 바꾸어야합니다. 
+
+y_train = pd.get_dummies(y_train)
+y_test = pd.get_dummies(y_test)
+
+# label  -> one hot encoding   
+# https://wikidocs.net/22647
+# in tensorflow   label must -> one hot encoding
+
+print('x_train shape :',x_train.shape)
+print('y_train shape: ', y_train.shape)
+print('x_test shape: ',x_test.shape)
+print('y_test shape: ', y_test.shape)
+
+import tensorflow.compat.v1 as tf 
+tf.disable_v2_behavior()
+
+
+x = tf.placeholder('float', [None, 784])  # data num : None , feature : 784
+W = tf.Variable(tf.zeros([784,10])) # weight matrix input layer : 784 output layer :10    ## reset to 0
+b = tf.Variable(tf.zeros([10])) # output layer : 10 ## reset to 0
+
+y = tf.nn.softmax(tf.matmul(x, W) + b)  # x and W matrix multiply + bias  
+#  y = perdiction value
+y_ = tf.placeholder('float', [None, 10]) 
+
+# classification : use cross entropy
+cross_entropy = -tf.reduce_sum(y_*tf.log(y)) 
+train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
+
+# batch training
+
+sess = tf.Session()
+sess.run(tf.global_variables_initializer())
+
+batch_size = 100
+training_epochs = 3
+
+for epoch in range(training_epochs):
+    batch_count=int(x_train.shape[0]/100) # num of batch
+    for i in range(batch_count):
+        # read batch size
+        batch_xs ,batch_ys= x_train[i*batch_size:i*batch_size+batch_size],y_train[i*batch_size:i*batch_size+batch_size]
+        #  regulate w, b variable    training
+        sess.run(train_step, feed_dict={x : batch_xs, y_ : batch_ys})
+        # [ True, False , False, True , False, True ] like this bollean vector
+        correct_prediction = tf.equal(tf.argmax(y,1),tf.argmax(y_,1))
+
+        # [ 1 01 0101010 010] convert  and evaluate average
+        accuracy = tf.reduce_mean(tf.cast(correct_prediction,"float"))
+
+        # if read 5 batch training accuracy print
+        if i % 100==0:
+            print(str(epoch+1)+'epoch'+str(i)+'batch',sess.run(accuracy,feed_dict={x:x_test[0:100],y_:y_test[0:100]}))
